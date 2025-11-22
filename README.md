@@ -119,6 +119,7 @@ flowchart TD
     style E fill:#000,stroke:#000,color:#fff
     style UP fill:#e3f2fd,stroke:#1565c0,stroke-width:2px
     style VIS fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+```
 ## 🚀 Key Features
 
 * **🤖 Agentic Triage Router:** Uses LLM-based intent classification to dynamically dispatch tasks. It knows the difference between *"I have a headache"* (Doctor) and *"How much is Panadol?"* (Search).
