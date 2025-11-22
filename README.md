@@ -39,63 +39,9 @@ flowchart TD
     
     Router -- "Safe Response" --> End(("Final Output"))
 
-يا بطل، الـ README.md ده هو "البدلة" اللي هتلبسها للمشروع وهو رايح يقابل العريس (الشركات والـ Recruiters). 😉👔
-
-عشان "تخضهم" بجد، الـ README لازم يكون فيه هيبة:
-
-Badges ملونة وشيك في الأول.
-
-Architecture Diagrams (الرسومات اللي عملناها).
-
-Features مكتوبة بلغة هندسية قوية.
-
-Demo GIF (مساحة ليك تحط فيديو لما تسجله).
-
-خد الكود ده Copy-Paste في ملف README.md عندك. أنا مظبطه بالـ Markdown الاحترافي:
-
-Markdown
-
-# 🩺 Health-AI-Gateway (SehaTech Agent)
-
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.68.0+-009688.svg?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![LangGraph](https://img.shields.io/badge/🦜🕸️_LangGraph-Agentic-orange)](https://langchain-ai.github.io/langgraph/)
-[![Zilliz](https://img.shields.io/badge/Vector_DB-Zilliz_Cloud-red)](https://zilliz.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-> **State-of-the-art Autonomous Medical Triage System** utilizing Adaptive RAG, Semantic Chunking, and Agentic Orchestration to deliver safe, hallucination-free diagnostic support.
-
----
-
-## 🌟 Project Overview
-
-**Health-AI-Gateway** is not just a chatbot; it's a hierarchical **Agentic System** designed to simulate a professional medical triage process. It acts as a centralized orchestrator that intelligently routes patient queries to specialized agents (Diagnostic Doctor, Web Search, or Vision Analysis) based on intent.
-
-The core innovation lies in its **Self-Correcting Diagnostic Loop**, where the system continuously evaluates its own confidence levels. If the confidence is below a safety threshold (0.8), it autonomously triggers a Retrieval-Augmented Generation (RAG) loop to fetch verified medical evidence from a vector database, ensuring maximum safety and accuracy.
-
----
-
-## 🏗️ System Architecture
-
-### 1. Agentic Orchestration (The Triage Router)
-The system operates on a **Star Topology**, where a central "Brain" decides the optimal tool for the job.
-
-```mermaid
-flowchart TD
-    Start(("User Input")) --> Router["🧠 Triage Router (Agent)\n(Intent Classification)"]
-    
-    Router -- "Medical Triage" --> DoctorTool["🩺 Consult Doctor Tool\n(Diagnostic Agent)"]
-    Router -- "General Info/Prices" --> WebTool["🌐 Web Search Tool\n(Tavily API)"]
-    Router -- "X-Ray/Prescription" --> VisionTool["👁️ Vision Analysis Tool\n(Gemini Vision/OCR)"]
-    Router -- "Emergency" --> FamilyTool["🚨 Notify Family Tool\n(Twilio/Mock SMS)"]
-    
-    DoctorTool --> Router
-    WebTool --> Router
-    VisionTool --> Router
-    FamilyTool --> Router
-    
-    Router -- "Safe Response" --> End(("Final Output"))
 ```
+
+
 
 ### 2. Self-Correcting Adaptive RAG
 
