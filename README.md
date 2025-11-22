@@ -1,4 +1,4 @@
-# 🩺 Health-AI-Gateway (SehaTech Agent)
+# 🩺 Health-AI-Gateway
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.68.0+-009688.svg?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
