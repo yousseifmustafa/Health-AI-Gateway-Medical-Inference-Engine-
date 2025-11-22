@@ -1,9 +1,19 @@
 # 🩺 Health-AI-Gateway
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.68.0+-009688.svg?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![LangGraph](https://img.shields.io/badge/🦜🕸️_LangGraph-Agentic-orange)](https://langchain-ai.github.io/langgraph/)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.68.0%2B-009688.svg?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![Pydantic](https://img.shields.io/badge/Pydantic-v2-E92063.svg?logo=pydantic&logoColor=white)](https://docs.pydantic.dev/)
+
+[![LangGraph](https://img.shields.io/badge/🦜🕸️_LangGraph-Agentic_Orchestration-orange)](https://langchain-ai.github.io/langgraph/)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-FFD21E)](https://huggingface.co/)
+
 [![Zilliz](https://img.shields.io/badge/Vector_DB-Zilliz_Cloud-red)](https://zilliz.com/)
+[![RAG Architecture](https://img.shields.io/badge/Architecture-Adaptive_RAG-blueviolet)](https://arxiv.org/abs/2005.11401)
+[![Semantic Chunking](https://img.shields.io/badge/Data-Semantic_Chunking-success)](https://python.langchain.com/docs/modules/data_connection/document_transformers/semantic-chunker)
+
+[![Lightning AI](https://img.shields.io/badge/Lightning_AI-Deployed-792EE5.svg?logo=lightning&logoColor=white)](https://lightning.ai/)
+[![Cloudinary](https://img.shields.io/badge/Cloudinary-Media_Hosting-3448C5.svg?logo=cloudinary&logoColor=white)](https://cloudinary.com/)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > **State-of-the-art Autonomous Medical Triage System** utilizing Adaptive RAG, Semantic Chunking, and Agentic Orchestration to deliver safe, hallucination-free diagnostic support.
