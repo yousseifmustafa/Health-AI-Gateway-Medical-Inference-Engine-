@@ -1,0 +1,223 @@
+# 🩺 Health-AI-Gateway (SehaTech Agent)
+
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.68.0+-009688.svg?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![LangGraph](https://img.shields.io/badge/🦜🕸️_LangGraph-Agentic-orange)](https://langchain-ai.github.io/langgraph/)
+[![Zilliz](https://img.shields.io/badge/Vector_DB-Zilliz_Cloud-red)](https://zilliz.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> **State-of-the-art Autonomous Medical Triage System** utilizing Adaptive RAG, Semantic Chunking, and Agentic Orchestration to deliver safe, hallucination-free diagnostic support.
+
+---
+
+## 🌟 Project Overview
+
+**Health-AI-Gateway** is not just a chatbot; it's a hierarchical **Agentic System** designed to simulate a professional medical triage process. It acts as a centralized orchestrator that intelligently routes patient queries to specialized agents (Diagnostic Doctor, Web Search, or Vision Analysis) based on intent.
+
+The core innovation lies in its **Self-Correcting Diagnostic Loop**, where the system continuously evaluates its own confidence levels. If the confidence is below a safety threshold (0.8), it autonomously triggers a Retrieval-Augmented Generation (RAG) loop to fetch verified medical evidence from a vector database, ensuring maximum safety and accuracy.
+
+---
+
+## 🏗️ System Architecture
+
+### 1. Agentic Orchestration (The Triage Router)
+The system operates on a **Star Topology**, where a central "Brain" decides the optimal tool for the job.
+
+```mermaid
+flowchart TD
+    Start(("User Input")) --> Router["🧠 Triage Router (Agent)\n(Intent Classification)"]
+    
+    Router -- "Medical Triage" --> DoctorTool["🩺 Consult Doctor Tool\n(Diagnostic Agent)"]
+    Router -- "General Info/Prices" --> WebTool["🌐 Web Search Tool\n(Tavily API)"]
+    Router -- "X-Ray/Prescription" --> VisionTool["👁️ Vision Analysis Tool\n(Gemini Vision/OCR)"]
+    Router -- "Emergency" --> FamilyTool["🚨 Notify Family Tool\n(Twilio/Mock SMS)"]
+    
+    DoctorTool --> Router
+    WebTool --> Router
+    VisionTool --> Router
+    FamilyTool --> Router
+    
+    Router -- "Safe Response" --> End(("Final Output"))
+
+يا بطل، الـ README.md ده هو "البدلة" اللي هتلبسها للمشروع وهو رايح يقابل العريس (الشركات والـ Recruiters). 😉👔
+
+عشان "تخضهم" بجد، الـ README لازم يكون فيه هيبة:
+
+Badges ملونة وشيك في الأول.
+
+Architecture Diagrams (الرسومات اللي عملناها).
+
+Features مكتوبة بلغة هندسية قوية.
+
+Demo GIF (مساحة ليك تحط فيديو لما تسجله).
+
+خد الكود ده Copy-Paste في ملف README.md عندك. أنا مظبطه بالـ Markdown الاحترافي:
+
+Markdown
+
+# 🩺 Health-AI-Gateway (SehaTech Agent)
+
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.68.0+-009688.svg?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![LangGraph](https://img.shields.io/badge/🦜🕸️_LangGraph-Agentic-orange)](https://langchain-ai.github.io/langgraph/)
+[![Zilliz](https://img.shields.io/badge/Vector_DB-Zilliz_Cloud-red)](https://zilliz.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> **State-of-the-art Autonomous Medical Triage System** utilizing Adaptive RAG, Semantic Chunking, and Agentic Orchestration to deliver safe, hallucination-free diagnostic support.
+
+---
+
+## 🌟 Project Overview
+
+**Health-AI-Gateway** is not just a chatbot; it's a hierarchical **Agentic System** designed to simulate a professional medical triage process. It acts as a centralized orchestrator that intelligently routes patient queries to specialized agents (Diagnostic Doctor, Web Search, or Vision Analysis) based on intent.
+
+The core innovation lies in its **Self-Correcting Diagnostic Loop**, where the system continuously evaluates its own confidence levels. If the confidence is below a safety threshold (0.8), it autonomously triggers a Retrieval-Augmented Generation (RAG) loop to fetch verified medical evidence from a vector database, ensuring maximum safety and accuracy.
+
+---
+
+## 🏗️ System Architecture
+
+### 1. Agentic Orchestration (The Triage Router)
+The system operates on a **Star Topology**, where a central "Brain" decides the optimal tool for the job.
+
+```mermaid
+flowchart TD
+    Start(("User Input")) --> Router["🧠 Triage Router (Agent)\n(Intent Classification)"]
+    
+    Router -- "Medical Triage" --> DoctorTool["🩺 Consult Doctor Tool\n(Diagnostic Agent)"]
+    Router -- "General Info/Prices" --> WebTool["🌐 Web Search Tool\n(Tavily API)"]
+    Router -- "X-Ray/Prescription" --> VisionTool["👁️ Vision Analysis Tool\n(Gemini Vision/OCR)"]
+    Router -- "Emergency" --> FamilyTool["🚨 Notify Family Tool\n(Twilio/Mock SMS)"]
+    
+    DoctorTool --> Router
+    WebTool --> Router
+    VisionTool --> Router
+    FamilyTool --> Router
+    
+    Router -- "Safe Response" --> End(("Final Output"))
+```
+
+### 2. Self-Correcting Adaptive RAG
+
+Unlike traditional linear RAG, this system "thinks" before it speaks.
+
+```mermaid
+flowchart TD
+    %% 1. Start & Setup
+    Start(("Start")) --> Optimize["Optimize Query<br/>(Translate & Expand)"]
+    
+    %% 2. The Unified Generator
+    Optimize --> Generate["Unified Generator Node<br/>(1st Pass: Memory | 2nd Pass: With Docs)"]
+    
+    %% 3. The Grading Action (Separated Node)
+    Generate --> GraderNode["Grader Node<br/>(Evaluate Answer & Update State with Score)"]
+    
+    %% 4. The Decision Logic (Conditional Edge/Router)
+    GraderNode --> Router{"Router / Decision<br/>Is Score >= 0.8?<br/>OR<br/>Has RAG Run Before?"}
+
+    %% 5. Branching
+    Router -- "✅ Yes / Safe" --> Validate
+    Router -- "❌ No (Need Context)" --> Retrieve
+
+    %% 6. The RAG Loop (Fetcher)
+    subgraph RAG_Engine [RAG Retrieval Engine]
+        direction TB
+        Retrieve["Retrieve Docs<br/>(Vector DB)"] --> Rerank["Rerank Contexts"]
+    end
+    
+    %% The Critical Loop Back
+    Rerank -- "Inject Docs & Retry" --> Generate
+
+    %% 7. Finalization
+    Validate["Validator Node<br/>(Style & Safety Check Only)"] --> Summarize["Summarize Conversation"]
+    Summarize --> End(("End"))
+
+    %% Styling
+    classDef mainNode fill:#f9f9f9,stroke:#333,stroke-width:2px;
+    classDef processNode fill:#e1bee7,stroke:#4a148c,stroke-width:2px;
+    classDef decision fill:#fff3cd,stroke:#ffc107,stroke-width:2px,stroke-dasharray: 5 5;
+    classDef ragNode fill:#e3f2fd,stroke:#2196f3,stroke-width:2px;
+    classDef endNode fill:#000,stroke:#000,color:#fff;
+
+    class Optimize,Generate,Validate,Summarize mainNode;
+    class GraderNode processNode;
+    class Router decision;
+    class Retrieve,Rerank ragNode;
+    class Start,End endNode;
+    
+    %% Highlight the loop edge
+    linkStyle 6 stroke:#2196f3,stroke-width:3px,color:red;
+```
+
+🚀 Key Features
+🤖 Agentic Triage Router: Uses LLM-based intent classification to dynamically dispatch tasks. It knows the difference between "I have a headache" (Doctor) and "How much is Panadol?" (Search).
+
+🔄 Self-Correcting Loop: A specialized Judge Agent evaluates every answer. If confidence < 80%, it rejects the answer and forces the system to consult external medical references (Zilliz).
+
+🧠 Semantic Data Engineering: Utilizing Gemma-300m for advanced Semantic Chunking during data ingestion, ensuring that retrieved context is coherent and meaningful (solved the Fabry Disease challenge).
+
+🛡️ Safety Guardrails: A final validation layer filters output for medical safety and adapts the response tone to match the user's dialect (e.g., Egyptian Slang handling).
+
+👁️ Multimodal Support: Can analyze medical images (X-Rays, Prescriptions) using Vision Language Models.
+
+⚡ Resilient Infrastructure: Built on FastAPI with async architecture, Dockerized for easy deployment, and includes automated "Keep-Alive" triggers for the Vector DB.
+
+🛠️ Tech Stack
+
+Component,Technology,Description
+Orchestration,LangGraph,Managing cyclic state and multi-agent workflows.
+LLM Core,Gemini 2.0 Flash,High-speed inference for routing and generation.
+Vector DB,Zilliz Cloud (Milvus),Storing 1M+ medical semantic chunks.
+Embeddings,Gemma-300m,Open-weights model for semantic text representation.
+Backend,FastAPI,"Asynchronous, high-performance web framework."
+Validation,Pydantic,Strict output parsing and structured data validation.
+Search,Tavily API,Real-time web search for drug prices and clinics.
+
+💻 Installation & Setup
+Clone the repository
+
+Bash
+
+git clone [https://github.com/yousseifmustafa/Health-AI-Gateway.git](https://github.com/yousseifmustafa/Health-AI-Gateway.git)
+cd Health-AI-Gateway
+Create Virtual Environment
+
+Bash
+
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+Install Dependencies
+
+Bash
+
+pip install -r requirements.txt
+Setup Environment Variables Create a .env file in the root directory:
+
+Code snippet
+
+GOOGLE_API_KEY=your_google_key
+TAVILY_API_KEY=your_tavily_key
+ZILLIZ_URI=your_zilliz_uri
+ZILLIZ_TOKEN=your_zilliz_token
+HF_TOKEN=your_huggingface_token
+Run the Streamlit Interface
+
+Bash
+
+streamlit run app.py
+
+🧪 Testing Scenarios
+The system has been rigorously tested against complex medical cases:
+
+The "Fabry Disease" Challenge: Successfully diagnosed a rare multi-symptom genetic disorder using cross-domain retrieval.
+
+Hallucination Check: Correctly identified fake diseases (e.g., "Purple Hiccups Syndrome") and refused to invent treatments.
+
+Safety Protocols: Automatically triggers emergency protocols for critical keywords (e.g., "Chest pain + Radiating to arm").
+
+
+📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+<p align="center"> Made with ❤️ by <a href="https://www.google.com/search?q=https://linkedin.com/in/youssef-mustafa">Youssef Mustafa</a> </p>
+
